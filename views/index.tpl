@@ -200,13 +200,9 @@
             html_data +=
               '<div class="col-md-4">' +
               '<img src="' + value.url + '" style="object-fit: cover;height:200px;width:200px;padding: 10px 0px 10px 0px">' +
-              // +  '<div  style="background-image: url(' + value.url + ') ;height: 200px; background-position: center;background - repeat: no - repeat; background - size: cover; ;">' +
 
+              // '<div  style=" background-image: url(' + value.url + ')height: 200px;background - repeat: no - repeat; background - size: cover; ;">' +
               '</div>';
-
-            // html_data += '<div class="col-md-4">',
-            //   html_data += '<img src="' + value.url + '" width="100" height="100"></img>',
-            //   html_data += '</div>'
           })
 
           $("#images").html(html_data);
