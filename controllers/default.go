@@ -92,7 +92,7 @@ func (c *CategoryController) Get() {
 	req3 := httplib.Get("https://api.thecatapi.com/v1/breeds")
 	req.Header("x-api-key", `31cf5af0-bb4d-4275-971c-0e161cbdfa0b`)
 
-	req.Param("limit", "9")
+	req.Param("limit", "3")
 	req.Param("category_ids", category)
 	// req.Param("page", "")
 	req.Param("breed_id", breed)

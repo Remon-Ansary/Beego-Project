@@ -3,7 +3,7 @@
 <html>
 
 <head>
-  <title>Beego</title>
+  <title>Caturday</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <style type="text/css">
   </style>
@@ -44,8 +44,9 @@
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-6"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
     </button>
+    <span class="navbar-toggler-icon"></span>
+
     <div class="collapse navbar-collapse justify-content-end" id="navbar-list-6">
       <ul class="navbar-nav">
         <li class="nav-item active">
@@ -74,7 +75,6 @@
           style="color:white; font-size:25px; display: flex;font-weight:bold;align-items: center; justify-content: center;">
           <p>Image/Search</p>
         </span>
-
       </div>
       <div class="row" style=" background-color: white;">
         <!-- select row 1 -->
@@ -114,12 +114,10 @@
               {{range .F2}}
               <option value="{{.Id}}">{{.Name}}</option>
               {{end}}
-
             </select>
           </div>
         </div>
       </div>
-
 
       <div class="row" style=" height:70px; background-color:rgb(255, 255, 255)">
         <div class="col-md-6">
@@ -131,33 +129,13 @@
             <option value="12">12</option>
           </select>
         </div>
-        <div class="col-md-6" style="margin-top:17px">
-          <button type="button" id="page" value="0" class="btn btn-primary btn-block">
+        <div class="col-md-6" style="margin-top:20px">
+          <button type="button" id="page" value="0" class="btn btn-info btn-block">
             <i class="fas fa-redo"> </i>
             More</button>
-
-        </div>
-
-      </div>
-
-
-      <div class="row">
-        <div class="col-md-6">
-          <nav aria-label="..." id="hidden_div">
-            <ul class="pagination pagination-circle">
-              <li class="page-item">
-                <a class="page-link">Previous</a>
-              </li>
-              <li class="page-item"><button class="page-link" id="page" href="#" value="1">1</button></li>
-              <li class="page-item"><button class="page-link" id="page" href="#" value="2">2</button></li>
-              <li class="page-item"><button id="page" class="page-link" href="#" value="3">3</button></li>
-              <li class="page-item">
-                <button class="page-link" id="page" value="3">Next</button>
-              </li>
-            </ul>
-          </nav>
         </div>
       </div>
+      <br><br>
 
       <div class="row">
         <div id="images" class="row">
@@ -167,18 +145,20 @@
               style=" background-image: url({{$v.Url}}); background-repeat: no-repeat; height: 300px; background-size: cover;">
               <!-- <img src=" {{$v.Url}}" style="object-fit: cover;height:200px;width:200px;padding: 10px 0px 10px 0px"> -->
             </div>
-
           </div>
           {{end}}
-
         </div>
-
       </div>
     </div>
-    <!-- pagination -->
-
   </div>
-
+  <!-- pagination -->
+  <div class="row">
+    <div class="pagination" id="hidden_div">
+      <ul>
+        <!--pages or li are comes from javascript -->
+      </ul>
+    </div>
+  </div>
 </div>
 <div id="loading">
   <img id="loading-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Loader.gif/480px-Loader.gif"
@@ -191,7 +171,7 @@
 <script>
 
   function showDiv(divId, element) {
-    document.getElementById(divId).style.display = element.value == 1 ? 'block' : 'none';
+    document.getElementById(divId).style.display = element.value == 2 || 1 ? 'block' : 'none';
   }
   // document.addEventListener("DOMContentLoaded", function () {
   //   var lazyloadImages;
@@ -241,19 +221,101 @@
   //     window.addEventListener("orientationChange", lazyload);
   //   }
   // })
-  window.onload = function () { document.getElementById("loading").style.display = "none" } 
+  window.onload = function () { document.getElementById("loading").style.display = "none" }
 
+  //page
+  $(document).on('click', 'a', function () {
+    let order = $('#order').val();
+    let category = $('#category').val();
+    let breed = $('#breed').val();
+    let limit = $('#limit').val();
+    let type = $('#type').val();
+    var page = document.getElementById("page1").value = parseInt(document.getElementById("page1").value) + 1;
+    console.log('page' + page);
+    $.ajax({
+      type: 'GET',
+      url: 'http://localhost:8080/new',
+      data: {
+        "order": order,
+        "category": category,
+        "breed": breed,
+        "limit": limit,
+        "mime_types": type,
+        "page": page
+      },
 
+      success: function (response) {
+        console.log(order);
+        console.log(breed);
+        console.log(limit);
+        let data = response;
+
+        let html_data = "";
+        $.each(data, function (key, value) {
+          html_data += '<div class="col-md-4" style="padding-bottom: 10px;">' +
+            '<div class="lazy" style="padding-bottom: 10px; background-image: url(' + value.url + '); background-repeat: no-repeat; height: 300px; background-size: cover;">' +
+            '</div>' +
+            '</div>'
+        })
+        $("#images").html(html_data);
+      },
+      error: function (error) {
+        console.log(error)
+      }
+    })
+
+  });
+  //click
   $(document).on('click', 'button', function () {
-   
-
     let order = $('#order').val();
     let category = $('#category').val();
     let breed = $('#breed').val();
     let limit = $('#limit').val();
     let type = $('#type').val();
     var page = document.getElementById("page").value = parseInt(document.getElementById("page").value) + 1;
-    console.log(page);
+    console.log('page' + page);
+
+    $.ajax({
+      type: 'GET',
+      url: 'http://localhost:8080/new',
+      data: {
+        "order": order,
+        "category": category,
+        "breed": breed,
+        "limit": limit,
+        "mime_types": type,
+        "page": page
+      },
+
+      success: function (response) {
+        console.log(order);
+        console.log(breed);
+        console.log(limit);
+        let data = response;
+
+        let html_data = "";
+        $.each(data, function (key, value) {
+          html_data += '<div class="col-md-4" style="padding-bottom: 10px;">' +
+            '<div class="lazy" style="padding-bottom: 10px; background-image: url(' + value.url + '); background-repeat: no-repeat; height: 300px; background-size: cover;">' +
+            '</div>' +
+            '</div>'
+        })
+        $("#images").html(html_data);
+      },
+      error: function (error) {
+        console.log(error)
+      }
+    })
+
+  });
+  //select
+  $(document).on('change', 'select', function () {
+    let order = $('#order').val();
+    let category = $('#category').val();
+    let breed = $('#breed').val();
+    let limit = $('#limit').val();
+    let type = $('#type').val();
+    var page = document.getElementById("page").value = 0;
 
     $.ajax({
       type: 'GET',
@@ -276,66 +338,7 @@
         let html_data = "";
         $.each(data, function (key, value) {
 
-          // html_data +=
-          //   '<div class="col-md-4">' +
-          //   // '<img src="' + value.url + '" style="object-fit: cover;height:200px;width:200px;padding: 10px 0px 10px 0px">' +
-          //   '<div style=" background-image: url(' + value.url + '); background-repeat: no-repeat; height: 200px; background-size: cover;">',
-
-          //   '</div>';
           html_data += '<div class="col-md-4" style="padding-bottom: 10px;">' +
-
-            //html_data += '<img src="' + value.url + '" width="400" height="400"></img>',
-
-            '<div class="lazy" style="padding-bottom: 10px; background-image: url(' + value.url + '); background-repeat: no-repeat; height: 300px; background-size: cover;">' +
-
-            '</div>' +
-            '</div>'
-
-          // html_data += '<div class="col-md-4">',
-          //   html_data += '<img src="' + value.url + '" width="100" height="100"></img>',
-          //   html_data += '</div>'
-        })
-
-        $("#images").html(html_data);
-      },
-      error: function (error) {
-        console.log(error)
-      }
-    })
-
-  });
-
-  $(document).on('change', 'select', function () {
-    let order = $('#order').val();
-    let category = $('#category').val();
-    let breed = $('#breed').val();
-    let limit = $('#limit').val();
-    let type = $('#type').val();
-
-
-    $.ajax({
-      type: 'GET',
-      url: 'http://localhost:8080/new',
-      data: {
-        "order": order,
-        "category": category,
-        "breed": breed,
-        "limit": limit,
-        "mime_types": type
-      },
-
-      success: function (response) {
-        console.log(order);
-        console.log(breed);
-        console.log(limit);
-        let data = response;
-
-        let html_data = "";
-        $.each(data, function (key, value) {
-
-          html_data += '<div class="col-md-4" style="padding-bottom: 10px;">' +
-
-            //html_data += '<img src="' + value.url + '" width="400" height="400"></img>',
 
             '<div class="lazy" style="padding-bottom: 10px; background-image: url(' + value.url + '); background-repeat: no-repeat; height: 300px; background-size: cover;">' +
 
@@ -355,6 +358,70 @@
       }
     })
   });
+
+
+  //pagination
+
+  const element = document.querySelector(".pagination ul");
+  let totalPages = 20;
+  let page = 10;
+  //calling function with passing parameters and adding inside element which is ul tag
+  element.innerHTML = createPagination(totalPages, page);
+  function createPagination(totalPages, page) {
+    let liTag = '';
+    let active;
+    let beforePage = page - 1;
+    let afterPage = page + 1;
+    if (page > 1) { //show the next button if the page value is greater than 1
+      liTag += `<li class="btn prev" onclick="createPagination(totalPages, ${page - 1})"><span><i class="fas fa-angle-left"></i> Prev</span></li>`;
+    }
+    if (page > 2) { //if page value is less than 2 then add 1 after the previous button
+      liTag += `<li class="first numb" onclick="createPagination(totalPages, 1)"><span>1</span></li>`;
+      if (page > 3) { //if page value is greater than 3 then add this (...) after the first li or page
+        liTag += `<li class="dots"><span>...</span></li>`;
+      }
+    }
+    // how many pages or li show before the current li
+    if (page == totalPages) {
+      beforePage = beforePage - 2;
+    } else if (page == totalPages - 1) {
+      beforePage = beforePage - 1;
+    }
+    // how many pages or li show after the current li
+    if (page == 1) {
+      afterPage = afterPage + 2;
+    } else if (page == 2) {
+      afterPage = afterPage + 1;
+    }
+    for (var plength = beforePage; plength <= afterPage; plength++) {
+      if (plength > totalPages) { //if plength is greater than totalPage length then continue
+        continue;
+      }
+      if (plength == 0) { //if plength is 0 than add +1 in plength value
+        plength = plength + 1;
+      }
+      if (page == plength) { //if page is equal to plength than assign active string in the active variable
+        active = "active";
+      } else { //else leave empty to the active variable
+        active = "";
+      }
+      liTag += `<li class="numb ${active}" onclick="createPagination(totalPages, ${plength})"><span>${plength}</span></li>`;
+    }
+    if (page < totalPages - 1) { //if page value is less than totalPage value by -1 then show the last li or page
+      if (page < totalPages - 2) { //if page value is less than totalPage value by -2 then add this (...) before the last li or page
+        liTag += `<li class="dots"><span>...</span></li>`;
+      }
+      liTag += `<li class="last numb" onclick="createPagination(totalPages, ${totalPages})"><span>${totalPages}</span></li>`;
+    }
+    if (page < totalPages) { //show the next button if the page value is less than totalPage(20)
+      liTag += `<li class="btn next" onclick="createPagination(totalPages, ${page + 1})"><span>Next <i class="fas fa-angle-right"></i></span></li>`;
+    }
+    element.innerHTML = liTag; //add li tag inside ul tag
+    return liTag; //reurn the li tag
+  }
+
+
+
 </script>
 
 
@@ -390,6 +457,85 @@
 
   #hidden_div {
     display: none;
+  }
+
+
+  /* pagination */
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+  /* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  } */
+
+  /* body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #20B2AA;
+    min-height: 100vh;
+    padding: 10px;
+  } */
+
+  .pagination ul {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    background: #fff;
+    padding: 8px;
+    border-radius: 50px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .pagination ul li {
+    color: #20B2AA;
+    list-style: none;
+    line-height: 45px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.3s ease;
+  }
+
+  .pagination ul li.numb {
+    list-style: none;
+    height: 45px;
+    width: 45px;
+    margin: 0 3px;
+    line-height: 45px;
+    border-radius: 50%;
+  }
+
+  .pagination ul li.numb.first {
+    margin: 0px 3px 0 -5px;
+  }
+
+  .pagination ul li.numb.last {
+    margin: 0px -5px 0 3px;
+  }
+
+  .pagination ul li.dots {
+    font-size: 22px;
+    cursor: default;
+  }
+
+  .pagination ul li.btn {
+    padding: 0 20px;
+    border-radius: 50px;
+  }
+
+  .pagination li.active,
+  .pagination ul li.numb:hover,
+  .pagination ul li:first-child:hover,
+  .pagination ul li:last-child:hover {
+    color: #fff;
+    background: #20B2AA;
   }
 </style>
 </body>
