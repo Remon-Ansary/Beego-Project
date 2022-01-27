@@ -33,27 +33,26 @@
   integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.css" rel="stylesheet" />
+
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
 
 <div class="container-flex">
   <nav class="navbar navbar-dark  navbar-expand-lg" style="background-color:rgb(221, 124, 89)">
 
     <a class="navbar-brand" href="#">
-      &nbsp; <i class="fas fa-cat"></i> &nbsp; Caturday
+      &nbsp; <i class="fas fa-cat"></i> &nbsp; Cat API
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-6"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
     </button>
-    <span class="navbar-toggler-icon"></span>
-
     <div class="collapse navbar-collapse justify-content-end" id="navbar-list-6">
       <ul class="navbar-nav">
         <li class="nav-item active">
           <a class="active nav-link " href="#"><u>Home</u> <span active class=" sr-only"></span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Cat breed</a>
+          <a class="nav-link" href="#">Documentation</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Experience</a>
@@ -226,7 +225,6 @@
   //page
   $(document).on('click', 'li', function () {
 
-
     const element = document.querySelector(".pagination ul");
     let totalPages = 20;
     let page = 10;
@@ -289,7 +287,7 @@
     let breed = $('#breed').val();
     let limit = $('#limit').val();
     let type = $('#type').val();
-
+    // var page = document.getElementById("page1").value = parseInt(document.getElementById("page1").value) + 1;
     console.log('page' + page);
     $.ajax({
       type: 'GET',
