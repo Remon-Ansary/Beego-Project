@@ -40,7 +40,7 @@
   <nav class="navbar navbar-dark  navbar-expand-lg" style="background-color:rgb(221, 124, 89)">
 
     <a class="navbar-brand" href="#">
-      &nbsp; <i class="fas fa-cat"></i> &nbsp; Cat API
+      &nbsp; <i class="fas fa-cat"></i> &nbsp; Cat Images
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-6"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,14 +52,9 @@
           <a class="active nav-link " href="#"><u>Home</u> <span active class=" sr-only"></span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Documentation</a>
+          <a class="nav-link" href="#">More Images</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Experience</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Blog</a>
-        </li>
+
       </ul>
     </div>
   </nav>
@@ -306,8 +301,8 @@
         console.log(breed);
         console.log(limit);
         let data = response;
-
         let html_data = "";
+
         $.each(data, function (key, value) {
           html_data += '<div class="col-md-4" style="padding-bottom: 10px;">' +
             '<div class="lazy" style="padding-bottom: 10px; background-image: url(' + value.url + '); background-repeat: no-repeat; height: 300px; background-size: cover;">' +
@@ -399,10 +394,7 @@
 
             '<div class="lazy" style="padding-bottom: 10px; background-image: url(' + value.url + '); background-repeat: no-repeat; height: 300px; background-size: cover;">' +
 
-            '</div>' +
-            '</div>'
-
-
+            '</div>' + '</div>'
           // html_data += '<div class="col-md-4">',
           //   html_data += '<img src="' + value.url + '" width="100" height="100"></img>',
           //   html_data += '</div>'
@@ -415,7 +407,6 @@
       }
     })
   });
-
 
   //pagination
 
@@ -478,9 +469,7 @@
   }
 
 
-
 </script>
-
 
 <style>
   .caturday {
@@ -516,27 +505,7 @@
     display: none;
   }
 
-
-  /* pagination */
-
-
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-
-  /* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-  } */
-
-  /* body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #20B2AA;
-    min-height: 100vh;
-    padding: 10px;
-  } */
 
   .pagination ul {
     width: 100%;
