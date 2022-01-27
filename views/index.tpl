@@ -33,290 +33,365 @@
   integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
 
+<div class="container-flex">
+  <nav class="navbar navbar-dark  navbar-expand-lg" style="background-color:rgb(221, 124, 89)">
 
-<body>
+    <a class="navbar-brand" href="#">
+      &nbsp; <i class="fas fa-cat"></i> &nbsp; Caturday
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-6"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbar-list-6">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="active nav-link " href="#"><u>Home</u> <span active class=" sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Cat breed</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Experience</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Blog</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+<br><br>
+<div class="container">
 
-  <div class="container-flex">
-    <nav class="navbar navbar-dark  navbar-expand-lg" style="background-color:rgb(221, 124, 89)">
+  <div class="row">
+    <div class="card shadow-lg z-depth-5 rounded">
+      <div class="row" style="background-color:black;align-items: center; ">
+        <span
+          style="color:white; font-size:25px; display: flex;font-weight:bold;align-items: center; justify-content: center;">
+          <p>Image/Search</p>
+        </span>
 
-      <a class="navbar-brand" href="#">
-        &nbsp; <i class="fas fa-cat"></i> &nbsp; Cat API
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-6"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbar-list-6">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="active nav-link " href="#"><u>Home</u> <span active class=" sr-only"></span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Documentation</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Experience</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Blog</a>
-          </li>
-        </ul>
       </div>
-    </nav>
-  </div>
-  <br><br>
-  <div class="container">
-
-    <div class="row">
-      <div class="card shadow-lg z-depth-5 rounded">
-        <div class="row" style="background-color:black;align-items: center; ">
-          <span
-            style="color:white; font-size:25px; display: flex;font-weight:bold;align-items: center; justify-content: center;">
-            <p>Image/Search</p>
-          </span>
-
-        </div>
-        <div class="row" style=" background-color: white;">
-          <!-- select row 1 -->
-          <div class="row">
-            <div class="col-md-6">
-              <label class="text-muted">Order</label>
-              <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="order">
-                <option selected>Random</option>
-                <option value="1">Ascending</option>
-                <option value="2">Descending</option>
-              </select>
-            </div>
-            <div class="col-md-6">
-              <label class="text-muted">Type</label>
-              <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="type">
-                <option selected>All</option>
-                <option value="gif">Animated</option>
-                <option value="png,jpg">Static</option>
-              </select>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <label class="text-muted">Category</label>
-              <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="category">
-                <option value="" selected>None</option>
-                {{range .F1}}
-                <option value="{{.Id}}">{{.Name}}</option>
-                {{end}}
-              </select>
-            </div>
-            <div class="col-md-6">
-              <label class="text-muted">Breed</label>
-              <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="breed">
-                <option value="" selected>None</option>
-                {{range .F2}}
-                <option value="{{.Id}}">{{.Name}}</option>
-                {{end}}
-
-              </select>
-            </div>
-          </div>
-        </div>
-
-
-
-        <!-- {{range $i,$v := .F}}
-              <div class="col-md-4">
-                <img src=" {{$v.Url}}" style="width:100px;height:100px;">
-              </div>
-              {{end}} -->
-
-        <div class="row" style=" height:70px; background-color:rgb(232, 232, 232)">
+      <div class="row" style=" background-color: white;">
+        <!-- select row 1 -->
+        <div class="row">
           <div class="col-md-6">
-            <label class="text-muted">Per Page</label>
-            <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="limit">
-              <option value="9">9</option>
-              <option value="3">3</option>
-              <option value="6">6</option>
-              <option value="9">12</option>
+            <label class="text-muted">Order</label>
+            <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="order"
+              onchange="showDiv('hidden_div', this)">
+              <option selected>Random</option>
+              <option value="1">Ascending</option>
+              <option value="2">Descending</option>
             </select>
           </div>
-          <div class="col-md-6" style="margin-top:17px">
-            <span>
-              <button type="button" id="page" value="0" class="btn btn-primary btn-block">
-                <i class="fas fa-redo"> </i>
-                More</button>
-            </span>
+          <div class="col-md-6">
+            <label class="text-muted">Type</label>
+            <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="type">
+              <option selected>All</option>
+              <option value="gif">Animated</option>
+              <option value="png,jpg">Static</option>
+            </select>
           </div>
-
         </div>
-
         <div class="row">
-          <div id="images" class="row">
-            {{range $i,$v := .F}}
-            <div class="col-md-4" style="padding-top:10px">
-              <div
-                style=" background-image: url({{$v.Url}}); background-repeat: no-repeat; height: 300px; background-size: cover;">
-                <!-- <img src=" {{$v.Url}}" style="object-fit: cover;height:200px;width:200px;padding: 10px 0px 10px 0px"> -->
-              </div>
-
-            </div>
-            {{end}}
-
+          <div class="col-md-6">
+            <label class="text-muted">Category</label>
+            <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="category">
+              <option value="" selected>None</option>
+              {{range .F1}}
+              <option value="{{.Id}}">{{.Name}}</option>
+              {{end}}
+            </select>
           </div>
+          <div class="col-md-6">
+            <label class="text-muted">Breed</label>
+            <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="breed">
+              <option value="" selected>None</option>
+              {{range .F2}}
+              <option value="{{.Id}}">{{.Name}}</option>
+              {{end}}
 
+            </select>
+          </div>
         </div>
       </div>
+
+
+      <div class="row" style=" height:70px; background-color:rgb(255, 255, 255)">
+        <div class="col-md-6">
+          <label class="text-muted">Per Page</label>
+          <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="limit">
+            <option value="9">9</option>
+            <option value="3">3</option>
+            <option value="6">6</option>
+            <option value="12">12</option>
+          </select>
+        </div>
+        <div class="col-md-6" style="margin-top:17px">
+          <button type="button" id="page" value="0" class="btn btn-primary btn-block">
+            <i class="fas fa-redo"> </i>
+            More</button>
+
+        </div>
+
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-6">
+          <nav aria-label="..." id="hidden_div">
+            <ul class="pagination pagination-circle">
+              <li class="page-item">
+                <a class="page-link">Previous</a>
+              </li>
+              <li class="page-item"><button class="page-link" id="page" href="#" value="1">1</button></li>
+              <li class="page-item"><button class="page-link" id="page" href="#" value="2">2</button></li>
+              <li class="page-item"><button id="page" class="page-link" href="#" value="3">3</button></li>
+              <li class="page-item">
+                <button class="page-link" id="page" value="3">Next</button>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <div class="row">
+        <div id="images" class="row">
+          {{range $i,$v := .F}}
+          <div class="col-md-4" style="padding-top:10px">
+            <div class="lazy"
+              style=" background-image: url({{$v.Url}}); background-repeat: no-repeat; height: 300px; background-size: cover;">
+              <!-- <img src=" {{$v.Url}}" style="object-fit: cover;height:200px;width:200px;padding: 10px 0px 10px 0px"> -->
+            </div>
+
+          </div>
+          {{end}}
+
+        </div>
+
+      </div>
     </div>
+    <!-- pagination -->
 
   </div>
-  <!-- <div id="loading">
-    <img id="loading-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Loader.gif/480px-Loader.gif"
-      alt="Loading..." />
-  </div> -->
 
-  <script>
-
-    $(document).on('click', 'button', function () {
+</div>
+<div id="loading">
+  <img id="loading-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Loader.gif/480px-Loader.gif"
+    alt="Loading..." />
+</div>
 
 
-      let order = $('#order').val();
-      let category = $('#category').val();
-      let breed = $('#breed').val();
-      let limit = $('#limit').val();
-      let type = $('#type').val();
-      let page = document.getElementById("page").value = parseInt(document.getElementById("page").value) + 1;
-      console.log(page);
-
-      $.ajax({
-        type: 'GET',
-        url: 'http://localhost:8080/new',
-        data: {
-          "order": order,
-          "category": category,
-          "breed": breed,
-          "limit": limit,
-          "mime_types": type,
-          "page": page
-        },
-
-        success: function (response) {
-          console.log(order);
-          console.log(breed);
-          console.log(limit);
-          let data = response;
-
-          let html_data = "";
-          $.each(data, function (key, value) {
-
-            // html_data +=
-            //   '<div class="col-md-4">' +
-            //   // '<img src="' + value.url + '" style="object-fit: cover;height:200px;width:200px;padding: 10px 0px 10px 0px">' +
-            //   '<div style=" background-image: url(' + value.url + '); background-repeat: no-repeat; height: 200px; background-size: cover;">',
-
-            //   '</div>';
-            html_data += '<div class="col-md-4" style="padding-bottom: 10px;">' +
-
-              //html_data += '<img src="' + value.url + '" width="400" height="400"></img>',
-
-              '<div style="padding-bottom: 10px; background-image: url(' + value.url + '); background-repeat: no-repeat; height: 300px; background-size: cover;">' +
-
-              '</div>' +
-              '</div>'
-
-            // html_data += '<div class="col-md-4">',
-            //   html_data += '<img src="' + value.url + '" width="100" height="100"></img>',
-            //   html_data += '</div>'
-          })
-
-          $("#images").html(html_data);
-        },
-        error: function (error) {
-          console.log(error)
-        }
-      })
-
-    });
-
-    $(document).on('change', 'select', function () {
-      let order = $('#order').val();
-      let category = $('#category').val();
-      let breed = $('#breed').val();
-      let limit = $('#limit').val();
-      let type = $('#type').val();
 
 
-      $.ajax({
-        type: 'GET',
-        url: 'http://localhost:8080/new',
-        data: {
-          "order": order,
-          "category": category,
-          "breed": breed,
-          "limit": limit,
-          "mime_types": type
-        },
+<script>
 
-        success: function (response) {
-          console.log(order);
-          console.log(breed);
-          console.log(limit);
-          let data = response;
+  function showDiv(divId, element) {
+    document.getElementById(divId).style.display = element.value == 1 ? 'block' : 'none';
+  }
+  // document.addEventListener("DOMContentLoaded", function () {
+  //   var lazyloadImages;
 
-          let html_data = "";
-          $.each(data, function (key, value) {
+  //   if ("IntersectionObserver" in window) {
+  //     lazyloadImages = document.querySelectorAll(".lazy");
+  //     var imageObserver = new IntersectionObserver(function (entries, observer) {
+  //       entries.forEach(function (entry) {
+  //         if (entry.isIntersecting) {
+  //           var image = entry.target;
+  //           image.classList.remove("lazy");
+  //           imageObserver.unobserve(image);
+  //         }
+  //       });
+  //     });
 
-            html_data +=
-              '<div class="col-md-4">' +
-              '<img src="' + value.url + '" style="object-fit: cover;height:200px;width:200px;padding: 10px 0px 10px 0px">' +
+  //     lazyloadImages.forEach(function (image) {
+  //       imageObserver.observe(image);
+  //     });
+  //   } else {
+  //     var lazyloadThrottleTimeout;
+  //     lazyloadImages = document.querySelectorAll(".lazy");
 
-              '</div>';
+  //     function lazyload() {
+  //       if (lazyloadThrottleTimeout) {
+  //         clearTimeout(lazyloadThrottleTimeout);
+  //       }
 
-            // html_data += '<div class="col-md-4">',
-            //   html_data += '<img src="' + value.url + '" width="100" height="100"></img>',
-            //   html_data += '</div>'
-          })
+  //       lazyloadThrottleTimeout = setTimeout(function () {
+  //         var scrollTop = window.pageYOffset;
+  //         lazyloadImages.forEach(function (img) {
+  //           if (img.offsetTop < (window.innerHeight + scrollTop)) {
+  //             img.src = img.dataset.src;
+  //             img.classList.remove('lazy');
+  //           }
+  //         });
+  //         if (lazyloadImages.length == 0) {
+  //           document.removeEventListener("scroll", lazyload);
+  //           window.removeEventListener("resize", lazyload);
+  //           window.removeEventListener("orientationChange", lazyload);
+  //         }
+  //       }, 20);
+  //     }
 
-          $("#images").html(html_data);
-        },
-        error: function (error) {
-          console.log(error)
-        }
-      })
-    });
-  </script>
+  //     document.addEventListener("scroll", lazyload);
+  //     window.addEventListener("resize", lazyload);
+  //     window.addEventListener("orientationChange", lazyload);
+  //   }
+  // })
+  window.onload = function () { document.getElementById("loading").style.display = "none" } 
 
 
-  <style>
-    .caturday {
-      font-size: 30px;
-      color: rgb(206, 71, 71);
-    }
+  $(document).on('click', 'button', function () {
+   
 
-    .img-fluid {
-      height: 150px;
-      width: 200px;
-      object-fit: cover;
-      object-position: bottom;
-    }
+    let order = $('#order').val();
+    let category = $('#category').val();
+    let breed = $('#breed').val();
+    let limit = $('#limit').val();
+    let type = $('#type').val();
+    var page = document.getElementById("page").value = parseInt(document.getElementById("page").value) + 1;
+    console.log(page);
 
-    #loading {
-      position: fixed;
-      display: block;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      text-align: center;
-      opacity: 0.7;
-      background-color: #fff;
-      z-index: 99;
-    }
+    $.ajax({
+      type: 'GET',
+      url: 'http://localhost:8080/new',
+      data: {
+        "order": order,
+        "category": category,
+        "breed": breed,
+        "limit": limit,
+        "mime_types": type,
+        "page": page
+      },
 
-    #loading-image {
-      position: absolute;
-      top: 100px;
-      left: 240px;
-      z-index: 100;
-    }
-  </style>
+      success: function (response) {
+        console.log(order);
+        console.log(breed);
+        console.log(limit);
+        let data = response;
+
+        let html_data = "";
+        $.each(data, function (key, value) {
+
+          // html_data +=
+          //   '<div class="col-md-4">' +
+          //   // '<img src="' + value.url + '" style="object-fit: cover;height:200px;width:200px;padding: 10px 0px 10px 0px">' +
+          //   '<div style=" background-image: url(' + value.url + '); background-repeat: no-repeat; height: 200px; background-size: cover;">',
+
+          //   '</div>';
+          html_data += '<div class="col-md-4" style="padding-bottom: 10px;">' +
+
+            //html_data += '<img src="' + value.url + '" width="400" height="400"></img>',
+
+            '<div class="lazy" style="padding-bottom: 10px; background-image: url(' + value.url + '); background-repeat: no-repeat; height: 300px; background-size: cover;">' +
+
+            '</div>' +
+            '</div>'
+
+          // html_data += '<div class="col-md-4">',
+          //   html_data += '<img src="' + value.url + '" width="100" height="100"></img>',
+          //   html_data += '</div>'
+        })
+
+        $("#images").html(html_data);
+      },
+      error: function (error) {
+        console.log(error)
+      }
+    })
+
+  });
+
+  $(document).on('change', 'select', function () {
+    let order = $('#order').val();
+    let category = $('#category').val();
+    let breed = $('#breed').val();
+    let limit = $('#limit').val();
+    let type = $('#type').val();
+
+
+    $.ajax({
+      type: 'GET',
+      url: 'http://localhost:8080/new',
+      data: {
+        "order": order,
+        "category": category,
+        "breed": breed,
+        "limit": limit,
+        "mime_types": type
+      },
+
+      success: function (response) {
+        console.log(order);
+        console.log(breed);
+        console.log(limit);
+        let data = response;
+
+        let html_data = "";
+        $.each(data, function (key, value) {
+
+          html_data += '<div class="col-md-4" style="padding-bottom: 10px;">' +
+
+            //html_data += '<img src="' + value.url + '" width="400" height="400"></img>',
+
+            '<div class="lazy" style="padding-bottom: 10px; background-image: url(' + value.url + '); background-repeat: no-repeat; height: 300px; background-size: cover;">' +
+
+            '</div>' +
+            '</div>'
+
+
+          // html_data += '<div class="col-md-4">',
+          //   html_data += '<img src="' + value.url + '" width="100" height="100"></img>',
+          //   html_data += '</div>'
+        })
+
+        $("#images").html(html_data);
+      },
+      error: function (error) {
+        console.log(error)
+      }
+    })
+  });
+</script>
+
+
+<style>
+  .caturday {
+    font-size: 30px;
+    color: rgb(206, 71, 71);
+  }
+
+  .img-fluid {
+    height: 150px;
+    width: 200px;
+    object-fit: cover;
+    object-position: bottom;
+  }
+
+  #loading {
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    right: 70px;
+    position: fixed;
+    display: block;
+    z-index: 99
+  }
+
+  #loading-image {
+    position: absolute;
+    top: 40%;
+    left: 45%;
+    z-index: 100
+  }
+
+  #hidden_div {
+    display: none;
+  }
+</style>
 </body>
 
 </html>
