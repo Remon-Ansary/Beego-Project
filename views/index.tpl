@@ -7,6 +7,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <style type="text/css">
   </style>
+  <!-- Latest compiled and minified JavaScript -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
@@ -32,9 +33,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
     integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+  <!-- 
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" /> -->
+
+  <!-- <script src="../static/js/script.js"></script> -->
   <link rel="stylesheet" src="../static/css/style.css" />
-  <script src="../static/js/script.js"></script>
 </head>
 
 <body>
@@ -79,7 +83,7 @@
                 <label class="text-muted">Order</label>
                 <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="order"
                   onchange="showDiv('hidden_div', this)">
-                  <option selected>Random</option>
+                  <option selected value="Rand">Random</option>
                   <option value="1">Ascending</option>
                   <option value="2">Descending</option>
                 </select>
@@ -131,6 +135,43 @@
                 More</button>
             </div>
           </div>
+          <div class="row">
+            <div class="col-md-6">
+              <!-- <nav aria-label="..." id="hidden_div" style="  display: none;">
+                <ul class="pagination pagination-circle">
+                  <li class="page-item">
+                    <a class="page-link">Previous</a>
+                  </li>
+                  <li class="page-item"><button class="page-link" id="page" href="#" value="1">1</button></li>
+                  <li class="page-item"><button class="page-link" id="page" href="#" value="2">2</button></li>
+                  <li class="page-item"><button id="page" class="page-link" href="#" value="3">3</button></li>
+                  <li class="page-item">
+                    <button class="page-link" id="page" value="3">Next</button>
+                  </li>
+                </ul>
+              </nav> -->
+
+              <nav aria-label="Page navigation example" id="hidden_div" style="  display: none;">
+                <ul class="pagination" id="page">
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
           <br><br>
 
           <div class="row">
@@ -150,22 +191,8 @@
         </div>
       </div>
       <!-- pagination -->
-      <div class="row">
-        <div class="pagination" id="hidden_div">
-          <ul>
-            <!--pages or li are comes from javascript -->
-          </ul>
-        </div>
-      </div>
-    </div>
+      <script src="../static/js/script.js"></script>
 
-    <div id="loading">
-      <img id="loading-image"
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Loader.gif/480px-Loader.gif" alt="Loading..." />
-    </div>
 </body>
-<script>window.onload = function () {
-    document.getElementById("loading").style.display = "none"
-  }</script>
 
 </html>
