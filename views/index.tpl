@@ -120,15 +120,14 @@
             </div>
           </div>
 
-
           <div class="row" style=" height:70px; background-color:rgb(255, 255, 255)">
             <div class="col-md-6">
               <label class="text-muted">Per Page</label>
               <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="limit">
                 <option value="9">9</option>
-                <option value="3">3</option>
-                <option value="6">6</option>
                 <option value="12">12</option>
+                <option value="20">20</option>
+                <option value="25">25</option>
               </select>
             </div>
             <div class="col-md-6" style="margin-top:20px; width: 200px;">
@@ -150,11 +149,11 @@
 
           <div class="row">
             <div id="images" class="row">
-              {{range $i,$v := .jsondata}}
+              {{range $i,$j := .jsondata}}
               <div class="col-md-4" style="padding-top:10px">
                 <div class="image" id='img'
-                  style=" background-image: url({{$v.Url}}); background-repeat: no-repeat; height: 300px; background-size: cover;">
-                  <!-- <img src=" {{$v.Url}}" style="object-fit: cover;height:200px;width:200px;padding: 10px 0px 10px 0px"> -->
+                  style=" background-image: url({{$j.Url}}); background-repeat: no-repeat; height: 300px; background-size: cover;">
+
                 </div>
               </div>
               {{end}}
