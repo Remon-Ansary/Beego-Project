@@ -31,9 +31,6 @@ function showDiv(divId, element) {
         },
 
         success: function (response) {
-          console.log(order)
-          console.log(breed)
-          console.log(limit)
           console.log("pagination" + page)
           let data = response
 
@@ -81,9 +78,6 @@ $(document).on("click", "button", function () {
     },
 
     success: function (response) {
-      console.log(order)
-      console.log(breed)
-      console.log(limit)
       let data = response
 
       let html = ""
@@ -126,9 +120,6 @@ $(document).on("change", "select", function () {
     },
 
     success: function (response) {
-      console.log(order)
-      console.log(breed)
-      console.log(limit)
       let data = response
 
       let html = ""

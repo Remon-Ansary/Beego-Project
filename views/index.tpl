@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
 
 <head>
@@ -145,19 +144,17 @@
             <div id="page-content" class="page-content"></div>
           </div>
 
+          <div id="image" class="row">
+            {{range $i,$j := .jsondata}}
+            <div class="col-md-4" style="padding-top:15px">
+              <div class="image" id='img'
+                style=" background-image: url({{$j.Url}}); background-repeat: no-repeat; height: 300px; background-size: cover;">
 
-          <div class="row">
-            <div id="image" class="row">
-              {{range $i,$j := .jsondata}}
-              <div class="col-md-4" style="padding-top:10px">
-                <div class="image" id='img'
-                  style=" background-image: url({{$j.Url}}); background-repeat: no-repeat; height: 300px; background-size: cover;">
-
-                </div>
               </div>
-              {{end}}
             </div>
+            {{end}}
           </div>
+
 
 
         </div>
