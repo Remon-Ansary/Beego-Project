@@ -164,7 +164,7 @@
 
         </div>
       </div>
-      <!-- pagination -->
+
       <script src="../static/js/script.js"></script>
 
 </body>
