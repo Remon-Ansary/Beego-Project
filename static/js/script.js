@@ -10,7 +10,7 @@ function showDiv(divId, element) {
     prev: "Prev",
     onPageClick: function (event, page1) {
       //fetch content and render here
-      $("#page-content").text("Page " + page1) + " content here"
+      $("#page-content").text("Page " + page1)
       let order = $("#order").val()
       let category = $("#category").val()
       let breed = $("#breed").val()
@@ -41,13 +41,13 @@ function showDiv(divId, element) {
           $.each(data, function (key, value) {
             html +=
               '<div class="col-md-4" style="padding-bottom: 10px;">' +
-              '<div class="lazy" id="img" style="padding-bottom: 10px; background-image: url(' +
+              '<div  id="img" style="padding-bottom: 10px; background-image: url(' +
               value.url +
               '); background-repeat: no-repeat; height: 300px; background-size: cover;">' +
               "</div>" +
               "</div>"
           })
-          $("#images").html(html)
+          $("#image").html(html)
         },
         error: function (error) {
           console.log(error)
@@ -89,14 +89,14 @@ $(document).on("click", "button", function () {
       let html = ""
       $.each(data, function (key, value) {
         html +=
-          '<div class="col-md-4" style="padding-bottom: 10px;">' +
-          '<div class="lazy" id="img" style="padding-bottom: 10px; background-image: url(' +
+          '<div class="col-md-4" style="padding-bottom: 15px;">' +
+          '<div id="img" style=" background-image: url(' +
           value.url +
-          '); background-repeat: no-repeat; height: 300px; background-size: cover;">' +
+          '); height: 300px; background-repeat: no-repeat; background-size: cover;">' +
           "</div>" +
           "</div>"
       })
-      $("#images").html(html)
+      $("#image").html(html)
     },
     error: function (error) {
       console.log(error)
@@ -135,14 +135,14 @@ $(document).on("change", "select", function () {
       $.each(data, function (key, value) {
         html +=
           '<div class="col-md-4" style="padding-bottom: 10px;">' +
-          '<div class="lazy" id="img" style="padding-bottom: 10px; background-image: url(' +
+          '<div class="" id="img" style="padding-bottom: 10px; background-image: url(' +
           value.url +
           '); background-repeat: no-repeat; height: 300px; background-size: cover;">' +
           "</div>" +
           "</div>"
       })
 
-      $("#images").html(html)
+      $("#image").html(html)
     },
     error: function (error) {
       console.log(error)

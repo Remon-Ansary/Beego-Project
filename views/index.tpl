@@ -80,7 +80,6 @@
           </div>
           <div class="row" style=" background-color: white;">
             <!-- select row 1 -->
-
             <div class="col-md-6">
               <label class="text-muted">Order</label>
               <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="order"
@@ -148,7 +147,7 @@
 
 
           <div class="row">
-            <div id="images" class="row">
+            <div id="image" class="row">
               {{range $i,$j := .jsondata}}
               <div class="col-md-4" style="padding-top:10px">
                 <div class="image" id='img'
