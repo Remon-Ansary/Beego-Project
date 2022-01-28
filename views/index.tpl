@@ -136,13 +136,13 @@
           </div>
           <br><br>
           <!-- per page -->
-          <div class="row">
+          <!-- <div class="row">
             <div class="col-md-6">
               <ul id="pagination-demo" class="pagination-sm" style="display: none">
               </ul>
             </div>
             <div id="page-content" class="page-content"></div>
-          </div>
+          </div> -->
 
           <div id="image" class="row">
             {{range $i,$j := .jsondata}}
@@ -155,7 +155,14 @@
             {{end}}
           </div>
 
-
+          <!-- per page -->
+          <div class="row">
+            <div class="col-md-6">
+              <ul id="pagination-demo" class="pagination-sm" style="display: none">
+              </ul>
+            </div>
+            <div id="page-content" class="page-content"></div>
+          </div>
 
         </div>
       </div>
