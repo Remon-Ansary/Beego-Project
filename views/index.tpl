@@ -54,7 +54,6 @@
         <li class="nav-item">
           <a class="nav-link" href="#">More Images</a>
         </li>
-
       </ul>
     </div>
   </nav>
@@ -143,6 +142,8 @@
           {{end}}
         </div>
       </div>
+
+
     </div>
   </div>
   <!-- pagination -->
@@ -317,7 +318,9 @@
     })
 
   });
-  //click
+
+
+  //button on click
   $(document).on('click', 'button', function () {
     let order = $('#order').val();
     let category = $('#category').val();
@@ -360,7 +363,7 @@
     })
 
   });
-  //select
+  //On select
   $(document).on('change', 'select', function () {
     let order = $('#order').val();
     let category = $('#category').val();
@@ -488,17 +491,17 @@
     width: 100%;
     height: 100%;
     top: 0px;
-    right: 70px;
-    position: fixed;
+    right: 50px;
+    position: fied;
     display: block;
-    z-index: 99
+    z-index: 99;
   }
 
   #loading-image {
     position: absolute;
     top: 40%;
-    left: 45%;
-    z-index: 100
+    left: 50%;
+    z-index: 20
   }
 
   #hidden_div {
