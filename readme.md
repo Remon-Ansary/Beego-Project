@@ -10,7 +10,7 @@
 - Can search cat images by static or animated images
 - Can filter cat images by order
 - can set images per page
-
+- After selecting order a dynamic page will be generated
 ```
 
 ### Prerequisite
@@ -33,9 +33,13 @@
 - go get github.com/beego/bee
 ```
 
+## Running Application
+
 Inside the project folder, please run the following command:
 
-- bee run
+```- bee run
+
+```
 
 ```
  This will run the project in the localhost http://localhost:8080/

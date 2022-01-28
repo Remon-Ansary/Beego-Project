@@ -80,46 +80,46 @@
           </div>
           <div class="row" style=" background-color: white;">
             <!-- select row 1 -->
-            <div class="row">
-              <div class="col-md-6">
-                <label class="text-muted">Order</label>
-                <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="order"
-                  onchange="showDiv('pagination-demo', this)">
-                  <option selected value="Rand">Random</option>
-                  <option value="1">Ascending</option>
-                  <option value="2">Descending</option>
-                </select>
-              </div>
-              <div class="col-md-6">
-                <label class="text-muted">Type</label>
-                <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="type">
-                  <option selected>All</option>
-                  <option value="gif">Animated</option>
-                  <option value="png,jpg">Static</option>
-                </select>
-              </div>
+
+            <div class="col-md-6">
+              <label class="text-muted">Order</label>
+              <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="order"
+                onchange="showDiv('pagination-demo', this)">
+                <option selected value="Rand">Random</option>
+                <option value="1">Ascending</option>
+                <option value="2">Descending</option>
+              </select>
             </div>
-            <div class="row">
-              <div class="col-md-6">
-                <label class="text-muted">Category</label>
-                <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="category">
-                  <option value="" selected>None</option>
-                  {{range .F1}}
-                  <option value="{{.Id}}">{{.Name}}</option>
-                  {{end}}
-                </select>
-              </div>
-              <div class="col-md-6">
-                <label class="text-muted">Breed</label>
-                <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="breed">
-                  <option value="" selected>None</option>
-                  {{range .F2}}
-                  <option value="{{.Id}}">{{.Name}}</option>
-                  {{end}}
-                </select>
-              </div>
+            <div class="col-md-6">
+              <label class="text-muted">Type</label>
+              <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="type">
+                <option selected>All</option>
+                <option value="gif">Animated</option>
+                <option value="png,jpg">Static</option>
+              </select>
             </div>
           </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label class="text-muted">Category</label>
+              <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="category">
+                <option value="" selected>None</option>
+                {{range .F1}}
+                <option value="{{.Id}}">{{.Name}}</option>
+                {{end}}
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="text-muted">Breed</label>
+              <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="breed">
+                <option value="" selected>None</option>
+                {{range .F2}}
+                <option value="{{.Id}}">{{.Name}}</option>
+                {{end}}
+              </select>
+            </div>
+          </div>
+
 
           <div class="row" style=" height:70px; background-color:rgb(255, 255, 255)">
             <div class="col-md-6">
@@ -131,23 +131,26 @@
                 <option value="12">12</option>
               </select>
             </div>
-            <div class="col-md-6" style="margin-top:20px">
+            <div class="col-md-6" style="margin-top:20px; width: 200px;">
               <button type="button" id="page" value="0" class="btn btn-info btn-block">
                 <i class="fas fa-redo"> </i>
                 More</button>
             </div>
           </div>
 
+
+
+          <br><br>
           <!-- per page -->
           <div class="row">
             <div class="col-md-6">
               <ul id="pagination-demo" class="pagination-sm" style="display: none">
               </ul>
             </div>
-            <div id="page-content" class="page-content">Page 1</div>
+            <div id="page-content" class="page-content"></div>
           </div>
 
-          <br><br>
+
           <div class="row">
             <div id="images" class="row">
               {{range $i,$v := .F}}

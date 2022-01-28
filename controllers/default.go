@@ -69,11 +69,10 @@ func (c *CatController) Get() {
 
 func (c *CategoryController) Get() {
 
-
 	breed := c.Ctx.Input.Param("breed_id")
 	order := c.Ctx.Input.Param("mime_types")
 	category := c.Ctx.Input.Param("category_ids")
-	
+
 	page := c.GetString("page")
 	req := httplib.Get("https://api.thecatapi.com/v1/images/search")
 

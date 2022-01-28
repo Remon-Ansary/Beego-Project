@@ -1,8 +1,10 @@
+//pagination
+
 function showDiv(divId, element) {
   document.getElementById(divId).style.display =
     element.value == 1 || 2 ? "" : "none"
   $("#pagination-demo").twbsPagination({
-    totalPages: 16,
+    totalPages: 100,
     visiblePages: 6,
     next: "Next",
     prev: "Prev",
@@ -101,6 +103,7 @@ $(document).on("click", "button", function () {
     },
   })
 })
+
 //On select
 $(document).on("change", "select", function () {
   let order = $("#order").val()
