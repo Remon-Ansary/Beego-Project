@@ -38,6 +38,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" /> -->
 
   <!-- <script src="../static/js/script.js"></script> -->
+  <script src="  https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.1/jquery.twbsPagination.min.js"></script>
   <link rel="stylesheet" src="../static/css/style.css" />
 </head>
 
@@ -64,6 +65,7 @@
       </div>
     </nav>
   </div>
+  <!-- nav finished -->
   <br><br>
   <div class="container">
     <div>
@@ -82,7 +84,7 @@
               <div class="col-md-6">
                 <label class="text-muted">Order</label>
                 <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="order"
-                  onchange="showDiv('hidden_div', this)">
+                  onchange="showDiv('pagination-demo', this)">
                   <option selected value="Rand">Random</option>
                   <option value="1">Ascending</option>
                   <option value="2">Descending</option>
@@ -135,50 +137,22 @@
                 More</button>
             </div>
           </div>
+
+          <!-- per page -->
           <div class="row">
             <div class="col-md-6">
-              <!-- <nav aria-label="..." id="hidden_div" style="  display: none;">
-                <ul class="pagination pagination-circle">
-                  <li class="page-item">
-                    <a class="page-link">Previous</a>
-                  </li>
-                  <li class="page-item"><button class="page-link" id="page" href="#" value="1">1</button></li>
-                  <li class="page-item"><button class="page-link" id="page" href="#" value="2">2</button></li>
-                  <li class="page-item"><button id="page" class="page-link" href="#" value="3">3</button></li>
-                  <li class="page-item">
-                    <button class="page-link" id="page" value="3">Next</button>
-                  </li>
-                </ul>
-              </nav> -->
-
-              <nav aria-label="Page navigation example" id="hidden_div" style="  display: none;">
-                <ul class="pagination" id="page">
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                      <span aria-hidden="true">&laquo;</span>
-                      <span class="sr-only">Previous</span>
-                    </a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                      <span aria-hidden="true">&raquo;</span>
-                      <span class="sr-only">Next</span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
+              <ul id="pagination-demo" class="pagination-sm" style="display: none">
+              </ul>
             </div>
+            <div id="page-content" class="page-content">Page 1</div>
           </div>
-          <br><br>
 
+          <br><br>
           <div class="row">
             <div id="images" class="row">
               {{range $i,$v := .F}}
               <div class="col-md-4" style="padding-top:10px">
-                <div class="lazy" id='img'
+                <div class="image" id='img'
                   style=" background-image: url({{$v.Url}}); background-repeat: no-repeat; height: 300px; background-size: cover;">
                   <!-- <img src=" {{$v.Url}}" style="object-fit: cover;height:200px;width:200px;padding: 10px 0px 10px 0px"> -->
                 </div>
