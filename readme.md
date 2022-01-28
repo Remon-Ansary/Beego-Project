@@ -1,10 +1,6 @@
-# Project Title
+## Beego Project
 
-A brief description of what this project does and who it's for
-
-# # Beego Project
-
-### A beggo project for cat API
+### A beego project for cat API
 
 ## Features
 
