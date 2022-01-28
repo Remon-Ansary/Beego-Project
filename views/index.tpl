@@ -161,7 +161,7 @@
               <ul id="pagination-demo" class="pagination-sm" style="display: none">
               </ul>
             </div>
-            <div id="page-content" class="page-content"></div>
+            <!-- <div id="page-content" class="page-content"></div> -->
           </div>
 
         </div>
