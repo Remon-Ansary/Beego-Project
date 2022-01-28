@@ -38,10 +38,15 @@
 Inside the project folder, please run the following command:
 
 ```
-* bee run
+- bee run
 
 ```
 
 ```
  This will run the project in the localhost http://localhost:8080/
 ```
+### Screenshots
+
+![website](https://i.ibb.co/qYfJsmy/cat1.png)
+![website](https://i.ibb.co/qWh1xL5/cat2.png)
+
