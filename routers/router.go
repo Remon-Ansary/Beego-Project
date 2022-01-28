@@ -7,14 +7,11 @@ import (
 )
 
 func init() {
-    beego.Router("/", &controllers.MainController{})
+	beego.Router("/", &controllers.CategoryController{})
 }
 func init() {
-    beego.Router("/new", &controllers.CatController{})
+	beego.Router("/new", &controllers.CatController{})
 }
 func init() {
-    beego.Router("/category", &controllers.CategoryController{})
-}
-func init() {
-    beego.Router("/breed", &controllers.BreedController{})
+	beego.Router("/breed", &controllers.BreedController{})
 }

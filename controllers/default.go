@@ -11,9 +11,6 @@ import (
 	// "github.com/astaxie/beego"
 )
 
-type MainController struct {
-	beego.Controller
-}
 type BeeferController struct {
 	beego.Controller
 }
@@ -25,12 +22,6 @@ type BreedController struct {
 }
 type CategoryController struct {
 	beego.Controller
-}
-
-func (c *MainController) Get() {
-	c.Data["Website"] = "beego.me"
-	c.Data["Email"] = "astaxie@gmail.com"
-	c.TplName = "index.tpl"
 }
 
 type Data1 []struct {
@@ -78,13 +69,11 @@ func (c *CatController) Get() {
 
 func (c *CategoryController) Get() {
 
-	// limit := c.GetString("limit")
-	// breed := c.GetString("breed_id")
+
 	breed := c.Ctx.Input.Param("breed_id")
 	order := c.Ctx.Input.Param("mime_types")
 	category := c.Ctx.Input.Param("category_ids")
-	// order := c.GetString("mime_types")
-	// category := c.GetString("category_ids")
+	
 	page := c.GetString("page")
 	req := httplib.Get("https://api.thecatapi.com/v1/images/search")
 
@@ -92,7 +81,7 @@ func (c *CategoryController) Get() {
 	req3 := httplib.Get("https://api.thecatapi.com/v1/breeds")
 	req.Header("x-api-key", `31cf5af0-bb4d-4275-971c-0e161cbdfa0b`)
 
-	req.Param("limit", "3")
+	req.Param("limit", "9")
 	req.Param("category_ids", category)
 	// req.Param("page", "")
 	req.Param("breed_id", breed)

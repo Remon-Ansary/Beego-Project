@@ -1,0 +1,32 @@
+.caturday {
+  font-size: 30px;
+  color: rgb(206, 71, 71);
+}
+
+.img-fluid {
+  height: 150px;
+  width: 200px;
+  object-fit: cover;
+  object-position: bottom;
+}
+
+#loading {
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  right: 50px;
+  position: fied;
+  display: block;
+  z-index: 99;
+}
+
+#loading-image {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  z-index: 20;
+}
+
+#hidden_div {
+  display: none;
+}
