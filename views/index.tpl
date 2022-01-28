@@ -104,7 +104,7 @@
               <label class="text-muted">Category</label>
               <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="category">
                 <option value="" selected>None</option>
-                {{range .F1}}
+                {{range .jsondata1}}
                 <option value="{{.Id}}">{{.Name}}</option>
                 {{end}}
               </select>
@@ -113,7 +113,7 @@
               <label class="text-muted">Breed</label>
               <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="breed">
                 <option value="" selected>None</option>
-                {{range .F2}}
+                {{range .jsondata2}}
                 <option value="{{.Id}}">{{.Name}}</option>
                 {{end}}
               </select>
@@ -137,9 +137,6 @@
                 More</button>
             </div>
           </div>
-
-
-
           <br><br>
           <!-- per page -->
           <div class="row">
@@ -153,7 +150,7 @@
 
           <div class="row">
             <div id="images" class="row">
-              {{range $i,$v := .F}}
+              {{range $i,$v := .jsondata}}
               <div class="col-md-4" style="padding-top:10px">
                 <div class="image" id='img'
                   style=" background-image: url({{$v.Url}}); background-repeat: no-repeat; height: 300px; background-size: cover;">

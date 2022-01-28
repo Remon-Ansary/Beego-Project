@@ -47,7 +47,7 @@ func (c *CatController) Get() {
 	categories := c.GetString("category")
 	req := httplib.Get("https://api.thecatapi.com/v1/images/search")
 
-	req.Header("x-api-key", `31cf5af0-bb4d-4275-971c-0e161cbdfa0b`)
+	req.Header("x-api-key", `e90ccfd6-8b42-4a31-8600-54bf7fb10ce7`)
 	req.Param("page", page)
 	req.Param("limit", limit)
 	req.Param("breed_id", breed)
@@ -100,20 +100,20 @@ func (c *CategoryController) Get() {
 	json.Unmarshal([]byte(resp), &result)
 	c.Data["json"] = result
 	// c.ServeJSON()
-	c.Data["F"] = &result
+	c.Data["jsondata"] = &result
 	c.TplName = "index.tpl"
 
 	//category
 	var result2 Data2
 	json.Unmarshal([]byte(resp2), &result2)
 	c.Data["json"] = result2
-	c.Data["F1"] = &result2
+	c.Data["jsondata1"] = &result2
 
 	//breeds
 	var result3 Data3
 	json.Unmarshal([]byte(resp3), &result3)
 	// c.Data["json"] = result3
-	c.Data["F2"] = &result3
+	c.Data["jsondata2"] = &result3
 	// c.ServeJSON()
 
 }

@@ -1,16 +1,16 @@
 ## Beego Project
 
-### A beego project for cat API
+### A beego project using Cat API
 
 ## Features
 
 ```
 - Can search cat images by breed
 - Can search cat images by category
-- Can search cat images by static or animated images
+- Can filter cat images by static or animated images
 - Can filter cat images by order
 - can set images per page
-- After selecting order a dynamic page will be generated
+- After selecting order a dynamic pagination will be generated
 ```
 
 ### Prerequisite
@@ -37,7 +37,8 @@
 
 Inside the project folder, please run the following command:
 
-```- bee run
+```
+* bee run
 
 ```
 
